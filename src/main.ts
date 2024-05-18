@@ -1,19 +1,15 @@
-import './assets/main.css';
-import '@quasar/extras/roboto-font-latin-ext/roboto-font-latin-ext.css';
-import '@quasar/extras/eva-icons/eva-icons.css';
-import 'quasar/src/css/index.sass';
-import { Quasar } from 'quasar';
+import './assets/css/main.css';
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 import App from './App.vue';
 import router from './router';
+import PrimeVue from 'primevue/config';
+import Lara from './assets/presets/lara';
+import ToastService from 'primevue/toastservice';
 
-const app = createApp(App);
-
-app
+createApp(App)
   .use(createPinia())
   .use(router)
-  .use(Quasar, {
-    plugins: {},
-  })
+  .use(PrimeVue, { unstyled: true, pt: Lara })
+  .use(ToastService)
   .mount('#app');
